@@ -1,5 +1,6 @@
 /*: [<< Previous](@previous)       [Next >>](@next)
-# Trailing Closures & Shorthand Syntax
+# Closures
+Trailing Closures & Shorthand Syntax
 */
 import Foundation
 
