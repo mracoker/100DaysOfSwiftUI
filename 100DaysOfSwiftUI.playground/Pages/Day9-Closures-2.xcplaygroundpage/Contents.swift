@@ -4,6 +4,7 @@ Trailing Closures & Shorthand Syntax
 */
 import Foundation
 
+//team array
 let team = ["Tom", "Dick", "Harry", "Albert", "Addison", "Carly", "Connor", "Sarah"]
 print(team.sorted())
 
