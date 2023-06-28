@@ -42,12 +42,14 @@ func makeArrayMod(size: Int, diceRoller generator: (Int) -> Int) -> [Int] {
     return numbers
 }
 
-var rolls = makeArrayMod(size: timesToRoll) { (mdn: Int) in
+var rollsMod = makeArrayMod(size: timesToRoll) { (mdn: Int) in
     Int.random(in: 1...mdn)
 }
-print(rolls);
+print(rollsMod);
 
-func makeArrayMod0(size: Int, diceRoller generator: (Int) -> Int) -> [Int] {
+//didn't use a label for our generator function
+//uses 2 input function parameters
+func makeArrayMod0(size: Int, generator: (Int) -> Int, doneMessage: () -> Void) -> [Int] {
     var numbers = [Int]()
     
     for _ in 0..<size {
@@ -55,5 +57,18 @@ func makeArrayMod0(size: Int, diceRoller generator: (Int) -> Int) -> [Int] {
         numbers.append(newNumber)
     }
     
+    doneMessage()
+    
     return numbers
 }
+
+//multiple closures called
+var rollsMod0 = makeArrayMod0(size: timesToRoll) { (mdn: Int) in
+    //first closure
+    Int.random(in: 1...mdn)
+} doneMessage: {
+    //second closure
+    print("All done, here is your array:")
+    //print(rollsMod0)
+}
+print(rollsMod0)
